@@ -3,12 +3,17 @@
  */
 package com.tw.cn.cap.gtb.todo;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import com.tw.cn.cap.gtb.todo.command.Command;
+import com.tw.cn.cap.gtb.todo.util.CommonUtils;
 
+import java.util.List;
+
+public class App {
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        run(args);
+    }
+    public static void run(String... args) {
+        Command command = CommonUtils.getCommand(args);
+        command.execute(args);
     }
 }
