@@ -10,14 +10,35 @@ public class ListCommand extends AbstractCommand{
     public List<String> execute() {
         super.execute();
         List<String> readFile = FileUtils.readFile();
-        return listShower(readFile);
+        return listSort(readFile);
     }
 
-    public List<String> listShower(List<String> lists) {
+    public List<String> listSort(List<String> lists) {
+        List<String> toBeDone = new ArrayList<>();
+        List<String> completed = new ArrayList<>();
+        for (String list : lists) {
+            String flag = list.substring(0, 1);
+            String content = list.substring(2);
+            switch (flag) {
+                case "+" -> toBeDone.add(content);
+                case "√" -> completed.add(content);
+            }
+        }
+        List<String> result = new ArrayList<>();
+        result.addAll(listShower(toBeDone, "# To be done"));
+        result.addAll(listShower(completed, "# completed"));
+        return result;
+    }
+
+    public List<String> listShower(List<String> lists, String title) {
         ArrayList<String> listAfterFormat = new ArrayList<>();
-        listAfterFormat.add("# To be done");
-        for (int i = 0; i < lists.size(); i++) {
-            listAfterFormat.add((i+1) + " " + lists.get(i));
+        listAfterFormat.add(title);
+        if (lists.isEmpty()) {
+            listAfterFormat.add("Empty");
+        } else {
+            for (int i = 0; i < lists.size(); i++) {
+                listAfterFormat.add((i+1) + " " + lists.get(i));
+            }
         }
         return listAfterFormat;
     }
