@@ -8,7 +8,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AbstractCommandTest {
-    AbstractCommand abstractCommand = new AbstractCommand();
+    AbstractCommand abstractCommand = new ListCommand();
 
     @Test
     void getCommand() {
