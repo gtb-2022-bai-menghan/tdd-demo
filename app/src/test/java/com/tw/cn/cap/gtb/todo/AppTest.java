@@ -3,12 +3,40 @@
  */
 package com.tw.cn.cap.gtb.todo;
 
+import com.tw.cn.cap.gtb.todo.command.CommandUtilTest;
+import com.tw.cn.cap.gtb.todo.command.ListCommand;
+import com.tw.cn.cap.gtb.todo.util.FileUtils;
+import org.checkerframework.checker.units.qual.A;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+class AppTest extends CommandUtilTest {
+    ListCommand listCommand = new ListCommand();
+    @Test
+    void runAdd() {
+        App.run("add", "foo bar", "ba r");
+        List<String> readFile = FileUtils.readFile();
+        Assertions.assertEquals(List.of("# To be done","1 foo", "2 bar", "3 foo bar", "4 ba r", "# completed","1 foo bar"), listCommand.listSortAndShow(readFile));
     }
+
+    @Test
+    void runMark() {
+        App.run("mark", "1", "2");
+        List<String> readFile = FileUtils.readFile();
+        Assertions.assertEquals(List.of("# To be done", "Empty", "# completed", "1 foo", "2 bar", "3 foo bar"), listCommand.listSortAndShow(readFile));
+
+    }
+
+    @Test
+    void runRemove() {
+        App.run("remove", "1", "3");
+        List<String> readFile = FileUtils.readFile();
+        Assertions.assertEquals(List.of("# To be done", "1 bar", "# completed", "Empty"), listCommand.listSortAndShow(readFile));
+    }
+
+
 }
