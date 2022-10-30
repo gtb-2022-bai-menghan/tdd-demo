@@ -7,5 +7,5 @@ public interface Command{
 
     List<String> getArgs(String[] args);
 
-    void execute();
+    List<String> execute();
 }
