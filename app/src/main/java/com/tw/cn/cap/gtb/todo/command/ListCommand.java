@@ -7,13 +7,12 @@ import java.util.List;
 
 public class ListCommand extends AbstractCommand{
     @Override
-    public List<String> execute() {
-        super.execute();
+    public List<String> doExecute(String... args) {
         List<String> readFile = FileUtils.readFile();
-        return listSort(readFile);
+        return listSortAndShow(readFile);
     }
 
-    public List<String> listSort(List<String> lists) {
+    public List<String> listSortAndShow(List<String> lists) {
         List<String> toBeDone = new ArrayList<>();
         List<String> completed = new ArrayList<>();
         for (String list : lists) {
