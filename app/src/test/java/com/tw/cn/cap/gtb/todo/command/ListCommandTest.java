@@ -10,11 +10,20 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ListCommandTest {
+    ListCommand listCommand = new ListCommand();
+    @Test
+    void listSort() {
+        List<String> readFile = FileUtils.readFile();
+        List<String> listSort = listCommand.listSort(readFile);
+        Assertions.assertEquals(List.of("# To be done","1 foo", "2 bar", "3 Task 00", "# completed","1 foo bar"), listSort);
+    }
+
     @Test
     void listShower() {
-        List<String> readFile = FileUtils.readFile();
-        ListCommand listCommand = new ListCommand();
         Assertions.assertEquals(List.of("# To be done","1 foo", "2 bar", "3 Task 00"),
-                listCommand.listShower(readFile));
+                listCommand.listShower(List.of("foo", "bar", "Task 00"), "# To be done"));
+
+        Assertions.assertEquals(List.of("# completed","1 foo", "2 bar", "3 Task 00"),
+                listCommand.listShower(List.of("foo", "bar", "Task 00"), "# completed"));
     }
 }
