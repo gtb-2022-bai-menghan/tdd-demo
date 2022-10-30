@@ -12,7 +12,7 @@ class ListCommandTest {
     void listSort() {
         List<String> readFile = FileUtils.readFile();
         List<String> listSort = listCommand.listSortAndShow(readFile);
-        Assertions.assertEquals(List.of("# To be done","1 foo", "2 bar", "3 Task 00", "# completed","1 foo bar"), listSort);
+        Assertions.assertEquals(List.of("# To be done","1 foo", "2 bar", "# completed","1 foo bar"), listSort);
     }
 
     @Test

@@ -14,6 +14,6 @@ class MarkCommandTest extends CommandUtilTest {
         MarkCommand markCommand = new MarkCommand();
         markCommand.listMark("mark", "1", "3");
         List<String> readFile = FileUtils.readFile();
-        Assertions.assertEquals(List.of("# To be done", "1 bar", "# completed", "1 foo", "2 Task 00", "3 foo bar"), new ListCommand().listSortAndShow(readFile));
+        Assertions.assertEquals(List.of("# To be done", "1 bar", "# completed", "1 foo", "2 foo bar"), new ListCommand().listSortAndShow(readFile));
     }
 }

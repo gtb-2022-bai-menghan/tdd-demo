@@ -14,6 +14,6 @@ class AddCommandTest extends CommandUtilTest{
         AddCommand addCommand = new AddCommand();
         addCommand.listAdd("add", "f o o", "b a r");
         List<String> readFile = FileUtils.readFile();
-        Assertions.assertEquals(List.of("# To be done","1 foo", "2 bar", "3 Task 00", "4 f o o", "5 b a r", "# completed","1 foo bar"), new ListCommand().listSortAndShow(readFile));
+        Assertions.assertEquals(List.of("# To be done","1 foo", "2 bar", "3 f o o", "4 b a r", "# completed","1 foo bar"), new ListCommand().listSortAndShow(readFile));
     }
 }

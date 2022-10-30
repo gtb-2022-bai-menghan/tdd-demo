@@ -13,8 +13,8 @@ class RemoveCommandTest extends CommandUtilTest {
     @Test
     void listRemove() {
         RemoveCommand removeCommand = new RemoveCommand();
-        removeCommand.listRemove("remove", "1", "4");
+        removeCommand.listRemove("remove", "1", "3");
         List<String> readFile = FileUtils.readFile();
-        Assertions.assertEquals(List.of("# To be done", "1 bar", "2 Task 00", "# completed","Empty"), new ListCommand().listSortAndShow(readFile));
+        Assertions.assertEquals(List.of("# To be done", "1 bar", "# completed","Empty"), new ListCommand().listSortAndShow(readFile));
     }
 }
