@@ -17,9 +17,9 @@ public abstract class AbstractCommand implements Command{
     }
 
     @Override
-    public List<String> execute() {
-        return null;
+    public void execute(String... args) {
+        doExecute(args);
     }
 
-    public abstract List<String> doExecute(String... args);
+    public abstract void doExecute(String... args);
 }

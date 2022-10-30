@@ -7,9 +7,9 @@ import java.util.List;
 
 public class ListCommand extends AbstractCommand{
     @Override
-    public List<String> doExecute(String... args) {
+    public void doExecute(String... args) {
         List<String> readFile = FileUtils.readFile();
-        return listSortAndShow(readFile);
+        listSortAndShow(readFile);
     }
 
     public List<String> listSortAndShow(List<String> lists) {
