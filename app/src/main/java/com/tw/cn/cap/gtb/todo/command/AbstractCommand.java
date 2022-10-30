@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class AbstractCommand implements Command{
+public abstract class AbstractCommand implements Command{
 
     @Override
     public String getCommand(String... args) {
@@ -20,4 +20,6 @@ public class AbstractCommand implements Command{
     public List<String> execute() {
         return null;
     }
+
+    public abstract List<String> doExecute(String... args);
 }
