@@ -1,14 +1,14 @@
 package com.tw.cn.cap.gtb.todo.command;
 
 import com.tw.cn.cap.gtb.todo.util.FileUtils;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AddCommandTest {
+class AddCommandTest extends CommandUtilTest{
     @Test
     void listAdd() {
         AddCommand addCommand = new AddCommand();

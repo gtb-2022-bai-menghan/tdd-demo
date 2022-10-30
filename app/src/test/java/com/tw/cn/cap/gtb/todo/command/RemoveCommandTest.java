@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class RemoveCommandTest {
+class RemoveCommandTest extends CommandUtilTest {
     @Test
     void listRemove() {
         RemoveCommand removeCommand = new RemoveCommand();
