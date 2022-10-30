@@ -2,7 +2,9 @@ package com.tw.cn.cap.gtb.todo.command;
 
 import com.tw.cn.cap.gtb.todo.util.FileUtils;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,13 +12,13 @@ import java.util.List;
 public class CommandUtilTest {
     static List<String> saveFileContent = new ArrayList<>();
 
-    @BeforeAll
-    static void beforeAll() {
+    @BeforeEach
+    void setUp() {
         saveFileContent = FileUtils.readFile();
     }
 
-    @AfterAll
-    static void afterAll() {
+    @AfterEach
+    void tearDown() {
         FileUtils.writeFile(saveFileContent);
     }
 }
