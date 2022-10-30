@@ -1,5 +1,6 @@
 package com.tw.cn.cap.gtb.todo.util;
 
+import com.tw.cn.cap.gtb.todo.command.CommandUtilTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class FileUtilsTest {
+class FileUtilsTest extends CommandUtilTest {
     @Test
     void readFile() {
         List<String> fileContent = FileUtils.readFile();
